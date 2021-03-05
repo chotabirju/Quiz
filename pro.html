@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+</head>
+<body>
+	<div id="form1"></div>
+     <h3>Quiz Competition</h3>
+     <label>Levels</label>
+     <button onclick="easylevel()">Easy</button>
+     <button onclick="Mediumlevel()">Medium</button>
+     <button onclick="Hardlevel()">Hard</button>
+     <script type="text/javascript">
+     	
+     	jso = [{id:0,qu:"Team India Captian name??"},
+     	       {id:1,qu:"Team England Captian name??"},
+     	       {id:2,qu:"Team Australia Captian name??"},
+     	       {id:3,qu:"Team SouthAfrica Captian name??"},]
+     	ans = ['virat','Finch','Joe Root','Faf Duplasis','None of thsese']
+     	let str = [];
+          let count = 0;
+     	function easylevel(){
+     		let Ques = jso.find(function(st){
+                    return (st.id==count)
+                    
+               });
+               
+               let str = '<div>';
+               str += Ques.qu+'<br>';
+               str += radiobuttons();
+               str += '<button onclick=\'next()\'>Next</button>'
+               str += '<button onclick=\'submit()\'>Submit</button>'
+               str += '</div>'
+          
+     		let std = document.getElementById('form1');
+     		std.innerHTML = str;
+     		
+
+     	}function next(){
+               count=count+1;
+               easylevel();
+          }
+          function submit(){
+               count=count+1;
+               easylevel();
+          }
+          
+     	function radiobuttons(){
+     		let btn = ans.map(function(st){
+     		
+     			let str = '<div>';
+     			str += '<input type="radio" id="huey" name="drone" value="'+st+'"checked>'+st
+     			str += '</div>'
+     			return str;
+
+     		});
+     	    return btn;
+     	}
+     	function Mediumlevel(){
+               let Ques = jso.find(function(st){
+                    return (st.id==count)
+                    
+               });
+               console.log(Ques.id);
+               let str = '<div>';
+               str += Ques.qu+'<br>';
+               str += radiobuttons();
+               str += '<button onclick=\'next()\'>Next</button>'
+               str += '<button onclick=\'submit()\'>Submit</button>'
+               str += '</div>'
+               
+               let std = document.getElementById('form1');
+               std.innerHTML = str;
+          }
+     	function Hardlevel(){
+               let Ques = jso.find(function(st){
+                    return (st.id==count)
+                    
+               });
+          
+               let str = '<div>';
+               str += Ques.qu+'<br>';
+               str += radiobuttons();
+               str += '<button onclick=\'next()\'>Next</button>'
+               str += '<button onclick=\'submit()\'>Submit</button>'
+               str += '</div>'
+               
+               let std = document.getElementById('form1');
+               std.innerHTML = str;
+          }
+     </script>
+</body>
+</html>
